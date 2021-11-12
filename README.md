@@ -1,22 +1,27 @@
-# Título
+# TITULO
 Cisco Devnet
 DevNet Associate 1.0 (DEVASC)
 
-## Descripción
+## DESCRIPCION
 Apuntes de apoyo
 
-## Licencia
+## LICENCIA
+
 Licencia Creative Common CC 
+
 BY-NC-SA 
+
 Reconocimiento-NoComercial-CompartirIgual.
 
-## Versión 
+## VERSION
 * 1.0
 	* Fecha: 9-10-2021 Versi�n inicial
 
-## Autor
+## AUTOR
 Por Paco Aldarias Raya
+
 [Aula Mentor](https://aulamentor.es)
+
 francisco.aldarias@aulamentor.es
 
 
