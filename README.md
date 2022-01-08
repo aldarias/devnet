@@ -13,7 +13,7 @@ Reconocimiento-NoComercial-CompartirIgual.
 
 Por Paco Aldarias Raya
 
-[Aula Mentor](https://aulamentor.es)
+[Aula Mentor](http://aulamentor.es)
 
 francisco.aldarias@aulamentor.es
 
