@@ -1,0 +1,94 @@
+LAB 6-2-7. Crear una Aplicación Web de Ejemplo en un Contenedor Docker
+CORRECCION DE ERRORES
+Por Paco Aldarias.
+Devnet Cisco. 22/3/2022
+******************************
+cat user-input.sh 
+#!/bin/bash
+echo -n "Introduzca su nombre: "
+read userName
+echo "Tu nombre es $userName."
+*****************************************
+cat sample_app1.py
+# Add to this file for the sample app lab
+from flask import Flask
+from flask import request
+
+app = Flask (__name__)
+
+@ app.route ("/")
+def main():
+      return "Me estás llamando desde " + request.remote_addr + "\n"
+
+if __name__ == "__main__":
+   app.run (host="0.0.0.0", port=8080)
+****************************************
+cat sample_app.py 
+# Add to this file for the sample app lab
+from flask import Flask,render_template
+
+app = Flask(__name__)
+
+@app.route("/")
+def main():
+   return render_template ("index.html")
+
+if __name__ == "__main__":
+   app.run (host="0.0.0.0", port=8080)
+   
+****************************************
+cat templates/index.html 
+<html>
+<head>
+<title>Aplicación de muestra</title>
+<link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+<h1>Me está llamando desde {{request.remote_addr}} </h1>
+</body>
+</html>
+*****************************
+#!/bin/bash
+echo "Creando carpetas tempdir"
+mkdir tempdir
+mkdir tempdir/templates
+mkdir tempdir/static
+
+echo "Copiando ficheros"
+cp sample_app.py tempdir/.
+cp -r templates/* tempdir/templates/.
+cp -r static/* tempdir/static/.
+
+echo "Creando Dockerfile"
+echo "FROM python" > tempdir/Dockerfile
+echo "RUN pip install flask" >> tempdir/Dockerfile
+
+echo "COPY ./static /home/miapp/static/ ">> tempdir/Dockerfile
+echo "COPY ./templates /home/miapp/templates/ ">> tempdir/Dockerfile
+echo "COPY sample_app.py /home/miapp/" >> tempdir/Dockerfile
+echo "EXPOSE 8080" >> tempdir/Dockerfile
+echo "CMD python3 /home/miapp/sample_app.py" >> tempdir/Dockerfile
+
+echo "Contruyendo contenedor docker"
+cd tempdir
+docker build -t sampleapp .
+
+echo "Ejecutando contenedor"
+docker run -t -d -p 8080:8080 --name samplerunning sampleapp
+
+echo "Contenedores ejecutandose"
+docker ps -a
+
+******************
+Ver contenedores: docker ps -a
+Parar contenedor: docker stop id
+Borrar contenedor: docker rm id
+Borrar imagen: docker rmi nombre
+****
+
+
+
+
+
+
+
