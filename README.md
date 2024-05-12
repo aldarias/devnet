@@ -10,6 +10,12 @@ Reconocimiento-NoComercial-CompartirIgual.
 
 * v1.0
 	* Fecha: 9-10-2021 Versión inicial
+* v2.0
+	* Fecha: 1-2-2022 Actualización
+* v3.0
+	* Fecha: 9-10-2022 Actualización
+* v4.0
+	* Fecha: 1-2-2023 Actualización
 
 Por Paco Aldarias Raya
 
